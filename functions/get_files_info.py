@@ -9,11 +9,12 @@ def get_files_info(working_directory, directory=None):
         directory = abs_working_dir
         abs_directory = os.path.abspath(directory)
     # Convert directory path to absolute
-    abs_directory = os.path.abspath(os.path.join(working_directory,directory))
+    else:
+        abs_directory = os.path.abspath(os.path.join(working_directory,directory))
 
     # Security check: directory must be inside working_directory
     if not abs_directory.startswith(abs_working_dir):
-        return 'Error: "directory" is not inside the working directory'
+        return f'Error: {directory} is not inside the working directory'
 
     # Start building the response
     final_response = ""
